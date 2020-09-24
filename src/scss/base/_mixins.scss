@@ -14,12 +14,54 @@
 }
 
 // Media queries
-@mixin bp($point) {
-  @if $point == large {
-    @media (min-width: 1280px) { @content; }
-  } @else if $point == small {
-    @media (max-width: 1279px) { @content; }
+
+@mixin bp($width, $type : min) {
+  @if map_has_key($breakpoints, $width){
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media (#{$type}-width:$width){
+      @content;
+    }
   }
+}
+
+// Border style
+@mixin border($direction,$size,$colour) {
+  @if $direction != "" {
+      border-#{$direction}: $size solid $colour;
+  } @else {
+    border: $size solid $colour;
+  }
+}
+
+// Transition
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+// Icon ::before
+@mixin before-content($value) {
+  @if map_has_key($content-value, $value){
+    $content: map_get($content-value, $value);
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      content: $content;
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      font-weight:100;;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      padding-right: 5px;
+    }
+  }
+  
 }
 
 // Text selection
@@ -47,3 +89,4 @@
   ::-moz-placeholder          {@content}
   :-ms-input-placeholder      {@content}
 }
+

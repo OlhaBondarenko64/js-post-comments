@@ -1,4 +1,3 @@
-/* By Athlon Front-End Team */
 
 /* Core variables */
 @import 'base/vars';
@@ -11,6 +10,10 @@
 
 /* Fonts */
 @import 'base/fonts';
+/* Fontawesome */
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+/* Lato google font */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap");
 
 /* Mixins, helpers and functions */
 @import 'base/mixins';
@@ -22,39 +25,386 @@
 /* Browser specific styles */
 @import 'dirty/hacks';
 
-/* Demo styles */
+/* Custom styles */
 
 body {
+  color: $foreground-color;
+  font-family: 'Lato', sans-serif;
   background: $body-background-color;
-  color: $foreground-color;
-  font-family: 'DINP-R', arial, serif;
-}
-
-header {
-  font-size: 2em;
-  margin: 20px;
-  color: $caption-color;
-  text-align: center;
-  background: $foreground-color url('../images/design/heading.png') center 20px no-repeat;
-  padding: 60px 30px 30px;
-  background-size: 160px;
-}
-
-main {
-  color: $foreground-color;
-  text-align: center;
-  padding: 10px;
+  background-attachment: fixed;
+  background-size: 100% auto;
+  line-height: 1.75;
+  font-size: 16px;
 }
 
 a {
   color: $link-color;
 }
 
-address {
-  color: $accent-color;
+h1{
+  font-size:3rem;
+  font-weight: 900;
+}
+h2{
+  font-size:1.5rem;
+  font-weight: 700;
 }
 
-.logo {
-  margin: 0 auto;
-  display: block;
+.btn{
+  display: inline-block;
+  font-weight: 100;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+  width: max-content;
+  padding:1.25rem 4rem;
+  font-size: 1.2rem;
+  color: $white;
+  border: 0;
+  &--gold{
+    background-color:$btn-bg-gold;
+    border-bottom: 10px solid $btn-border-gold;
+  }
+  &--blue{
+    background-color:$btn-bg-blue;
+    border-bottom: 10px solid $btn-border-blue;
+  }
+}
+
+/* Header */
+header{
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  &.sticky{
+    position: sticky;
+    top: 0;
+    background-color: $header-background-color;
+    .header-menu{
+      @include bp('desktop', max){
+        &__item{
+          padding: 20px 0px 15px;
+        }
+      }
+    }
+  }
+}
+.nav-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .logo {
+    display: block;
+    padding: 20px;
+  }
+  .header-menu{
+    display: flex;
+    &__item{
+      padding: 50px 0px 45px;
+      margin: 0 20px;
+      border-bottom: 5px solid transparent;
+      &:hover{
+        border-bottom: 5px solid $blue;
+      }
+    }
+    &__link{
+      text-transform: uppercase;
+      &:hover{
+        color: $white;
+      }
+    }
+  }
+  .toggle-button{
+    display: none;     
+    padding: 20px;
+    z-index: 1;
+    position: absolute;
+    right: 20px;
+    color: $blue; 
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  @include bp('desktop', max){
+    .nav-header{
+      justify-content: center;
+    }
+    .toggle-button {
+      display: flex;
+    }
+
+    .header-menu {
+        // display: none;
+        position: fixed;
+        flex-direction: column;
+        // width: 100%;
+        width: 0;
+        max-width: 320px;
+        height: 100vh;
+        background-color: wheat;
+        top: 0;
+        right: 0;
+        padding-top: 50px;
+        opacity: 0;
+        visibility: hidden;
+        @include transition(all 600ms ease-in-out);
+        &__item{
+          padding: 20px;
+        }
+        
+    }
+
+    .header-menu.active {
+      display: flex;
+      opacity: 1;
+      width: 100%;
+      visibility: visible;
+    }
+}
+}
+
+/* Hero */
+.hero{
+  height: 80vmin;
+  min-height: 660px;
+  .container{
+    height: 100%;
+  }
+  .hero-item{
+    background-size: cover;
+    height: 100%;
+    background-image: url("../images/content/bg-hero.jpg");
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (   min--moz-device-pixel-ratio: 2),
+    only screen and (     -o-min-device-pixel-ratio: 2/1),
+    only screen and (        min-device-pixel-ratio: 2),
+    only screen and (                min-resolution: 192dpi),
+    only screen and (                min-resolution: 2dppx) { 
+      background-image: url("../images/content/bg-hero@2x.jpg");
+    }
+    h1{
+      color: $white; 
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      margin-bottom: 40px;
+      span{
+        position: relative;
+        &::after {
+          content: "";
+          height: 5px;
+          position: absolute;
+          bottom: -20px;
+          right: 0;
+          width: 36%;
+          background-color: $blue;
+        }
+      }
+    }
+    p{
+      color: $white; 
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+    .hero-item__wrapper{
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height:100%;
+    }
+  }
+}
+
+
+.container,
+.wrapper {
+  width:100%;
+  padding-right:15px;
+  padding-left:15px;
+  margin-right:auto;
+  margin-left:auto;
+}
+@media (min-width:576px){
+  .container,
+  .wrapper{max-width:540px}
+}
+@media (min-width:768px){
+  .container,
+  .wrapper{max-width:720px}
+}
+@media (min-width:992px){
+  .container,
+  .wrapper{max-width:960px}
+}
+@media (min-width:1200px){
+  .container,
+  .wrapper{max-width:1140px}
+}
+
+/* Partners */
+.partners {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  img{
+    width: 14%;
+    height: auto;
+    align-self: center;
+  }
+}
+
+/* Support */
+.age{
+  background-color: $section-background-color;
+  color: $white;
+  text-align: center;
+  &__title{
+    padding: 80px 0 40px;  
+  }
+  &__text {
+    padding-bottom: 70px;
+  }
+  &__image {
+    transform: translateY(10px);
+    margin: auto;
+  }
+}
+.contact-us{
+  text-align: center;
+  padding: 70px 0;
+  &__title {
+    color: $accent-color;
+  }
+  &__text {
+    padding: 40px 0;
+  }
+}
+
+.home-support{
+  background-size: cover;
+  height: 600px;
+  width: 100%;
+  background-image: url("../images/content/bg-home-support.jpg");
+  text-align: center;
+  padding: 40px 0;
+  margin-bottom: 100px;
+  &__title{
+    color: $white;
+  }
+  .support-slider{
+    transform: translateY(10px);
+    margin-top: 20px;
+    img{
+      margin: auto;
+    }
+  }
+}
+
+.join-team{
+  background-color: $dark-background-color;
+  display: flex;
+  color: $white;
+  @include bp('tablet', max){
+    flex-direction: column;
+  }
+  &__img{
+    width: 40%;
+    max-width: 600px;
+    display: flex;
+    @include bp('tablet', max){
+        width: auto;
+        margin: auto;
+    }
+  }
+  &__content{
+    width: 60%;
+    padding: 30px 25px;
+    @include bp('tablet', max){
+      width: 100%;
+    }
+  }
+  &__title{
+    span{
+      position: relative;
+      &::after {
+        content: "";
+        height: 5px;
+        position: absolute;
+        bottom: -15px;
+        right: 0;
+        width: 36%;
+        background-color: $blue;
+      }
+    }
+  }
+  &__text{
+    padding: 20px 0 30px;
+  }
+}
+
+footer{
+  border-top: 3px solid $border-footer;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .footer-nav{
+    display: flex;
+    margin: 48px auto;
+    justify-content: center;
+    &__item{
+      padding: 0 20px;
+    }
+    &__link{
+      color: $link-footer;
+      text-transform: uppercase;
+    }
+  }
+  address {
+    color: $address-color;
+    text-align: center;
+    font-size: 0.85rem;
+    line-height: 2.6;
+    font-style: normal;
+    a{
+      color: $address-color;
+    }
+  }
+  .email {
+    color: $gold;
+    text-align: center;
+    display: block;
+  }
+  .copyright{
+    border-top: 1px solid $border-copyright;
+    margin: 50px 0 30px;
+    padding-top: 30px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: $address-color;
+  }
+}
+.footer-social {
+  margin: 35px 0 35px;
+  padding: 0;
+  font-size: 0;
+  text-align: center;
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    display: block;
+    position: relative;
+    margin: 0 7px;
+    width: 68px;
+    height: 68px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'socialicons-medium';
+    font-size:50px;
+    text-transform:none;
+    
+  }
 }

@@ -2,16 +2,115 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Athlon / Front-end Boilerplate Template</title>
+    <title>McGREW BEHAVIOR SERVICES</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   </head>
   <body>
-    <header>
-      Hello, world!
-      <img src="images/content/logoa.svg" alt="Logo of Athlon" class="logo">
+    <header id="header">
+      <nav class="nav-header container">
+        <a href="https://www.google.com" class="logo">
+          <img src="./images/content/logo.png" class="logo" alt="logo">
+        </a>
+        <ul class="header-menu">
+          <li class="header-menu__item"><a href="https://www.google.com" class="header-menu__link">Home</a></li>
+          <li class="header-menu__item"><a href="https://www.google.com" class="header-menu__link">About Us</a></li>
+          <li class="header-menu__item"><a href="https://www.google.com" class="header-menu__link">Contact</a></li>
+        </ul>
+        <div class="toggle-button">
+          <i class="fa fa-bars"></i>
+        </div>
+      </nav>
     </header>
+    <div class="hero">
+      <div class="hero-item ">
+        <div class="container">
+          <div class="hero-item__wrapper">
+            <h1><span>We can help.</span></h1>
+            <p>Teaching independence to the lives of the people you love with reliable, individualized emotional and behavioral therapy.</p>
+            <button class="btn btn--gold">Find help here</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <main>
-      <p>Demo page illustrating building SASS, JS, Fonts, Background Images and Inline Images.</p>
-      <address>Documentation avaialable on the official <a href="https://github.com/WeAreAthlon/frontend-webpack-boilerplate/" target="_blank">GitHub Repository</a>.</address>
+      <section class="partners">
+        <img src="images/content/img-partners1.png" alt="Magellan Helth" srcset="">
+        <img src="images/content/img-partners2.png" alt="KAISER PERMANENTE" srcset="">
+        <img src="images/content/img-partners3.png" alt="Anthem" srcset="">
+        <img src="images/content/img-partners4.png" alt="North Bay" srcset="">
+        <img src="images/content/img-partners5.png" alt="Partnership HelthPlan" srcset="">
+        <img src="images/content/img-partners6.png" alt="Aetna" srcset="">
+      </section>  
+      <section class="support">
+        <div class="age">
+          <div class="wrapper">
+            <h1 class="age__title">Support For People Of All Walks of Life</h1>
+            <p class="age__text">Children as young as 2 years old may begin to develop behaviors which need extra support and attention.</p>
+            <img src="images/content/img-people.png" srcset="images/content/img-people.png 1x, images/content/img-people@2x.png 2x" alt="Support For People" class="age__image" >
+          </div>
+        </div>
+        <div class="contact-us">
+          <div class="wrapper">
+            <h2 class="contact-us__title">McGrew Behavior Services Helps...</h2>
+            <p class="contact-us__text">Families, organizations and health care providers in Northern California. Our knowledge and experience provide the specialized support people need when overcoming behavioral challenges. </p>
+            <button type="button" class="btn btn--gold">Contact Us</button>
+          </div>
+        </div>
+      </section>
+      <section class="home-support">
+        <h1 class="home-support__title">In Home Support</h1>
+        <div class="support-slider">
+          <div class="slide">
+            <img src="images/content/slide1.jpg" srcset="images/content/slide1.jpg 1x, images/content/slide1@2x.jpg 2x">
+          </div>
+          <div class="slide">
+            <img src="images/content/slide1.jpg" srcset="images/content/slide1.jpg 1x, images/content/slide1@2x.jpg 2x">
+          </div>
+          <div class="slide"></div>
+        </div>  
+      </section>
+      <section class="join-team">
+        <picture class="join-team__img">
+          <img src="images/content/img-team.jpg" alt="Join Our Team"  srcset="images/content/img-team.jpg 1x, images/content/img-team@2x.jpg 2x">
+        </picture>
+        <div class="join-team__content">
+          <em>Be a part of something bigger than yourself. Make a difference.</em>
+          <h1 class="join-team__title"><span>Join Our Team.</span></h1>
+          <p class="join-team__text">We are always looking for highly motivated individuals who aligned with our committment to making a difference in the lives of other people. Whether you’re a BCBA or interested in ABA work we are interested in talking to you!</p>
+          <button class="btn btn--blue">FIND WHAT’S AVAILABLE</button>
+        </div>
+      </section>
     </main>
+    <footer>
+      <ul class="footer-nav">
+          <li class="footer-nav__item"><a href="https://www.google.com" class="footer-nav__link">Home</a></li>
+          <li class="footer-nav__item"><a href="https://www.google.com" class="footer-nav__link">About Us</a></li>
+          <li class="footer-nav__item"><a href="https://www.google.com" class="footer-nav__link">Contact</a></li>
+          <li class="footer-nav__item"><a href="https://www.google.com" class="footer-nav__link">Careers</a></li>
+      </ul>
+      <ul class="footer-social">
+
+          <li><a href="https://www.google.com" class="icn-linkedin">i</a></li>
+
+          <li><a href="https://www.google.com" class="icn-skype">o</a></li>
+
+          <li><a href="https://www.google.com" class="icn-people">m</a></li>
+
+      </ul>
+      
+      <address>
+        120 Theresa Ave, American Canyon, CA 94503 <br/>
+        <a href="tel:+7075610134">707.561.0134</a> 
+      </address>
+      <a href="mailto:familyresources@mbisinc.com" class="email">familyresources@mbisinc.com</a>
+      <div class="copyright container">
+        Copyright &copy; 2017 McGrews Behavior Services All Rights Reserved   
+      </div>
+    </footer>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </body>
 </html>

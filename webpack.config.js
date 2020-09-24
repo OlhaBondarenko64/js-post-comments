@@ -60,7 +60,7 @@ const config = function(env, args) {
           ],
         },
         {
-          test: /\.(eot|svg|ttf|woff|woff2)$/,
+          test: /\.(eot|svg|ttf|woff|woff2|otf)$/,
           use: [
             {
               loader: 'url-loader',
