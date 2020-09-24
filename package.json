@@ -2,7 +2,7 @@
   "name": "McGREW",
   "version": "4.4.0",
   "description": "Starter project template boilerplate based on Webpack with SASS and babel ES6/7 support.",
-  "homepage": "https://github.com/OlhaBondarenko64/McGREW.git",
+  "homepage": "https://olhabondarenko64.github.io/js-post-comments/",
   "scripts": {
     "build": "webpack --mode=development",
     "watch": "webpack --mode=development --watch",
@@ -22,7 +22,7 @@
   "author": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/OlhaBondarenko64/McGREW.git"
+    "url": "https://github.com/OlhaBondarenko64/js-post-comments"
   },
   "engines": {
     "node": ">=10.13.0"
